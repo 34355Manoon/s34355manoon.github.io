@@ -1,104 +1,31 @@
+<!-- นี่คือโครงสร้างหน้าเว็บทังหมด  -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>หน้าแนะนำตัวของฉัน</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background-color: #FFB6C1;
-    font-family: sans-serif;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-  }
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    max-width: 480px;
-    width: 100%;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: #FFB6C1;
-  }
-  .avatar {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    background: #FFB6C1;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; font-weight: bold;
-    color: #d63384;
-    margin-bottom: 1rem;
-  }
-  h1 { font-size: 20px; color: #1a1a1a; margin-bottom: 4px; }
-  .subtitle { color: #888; font-size: 13px; margin-bottom: 1.25rem; }
-  hr { border: none; border-top: 1px solid #eee; margin-bottom: 1.25rem; }
-  .row { display: flex; gap: 10px; margin-bottom: 1rem; align-items: flex-start; }
-  .icon { font-size: 20px; color: #0284c7; }
-  .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
-  .value { font-size: 14px; color: #222; }
-  .badge {
-    display: inline-block;
-    background: #FFB6C1;
-    color: #d63384;
-    font-size: 12px;
-    padding: 3px 10px;
-    border-radius: 6px;
-    margin: 0 4px 4px 0;
-  }
-  .footer {
-    margin-top: 1.25rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
-    font-size: 13px;
-    color: #888;
-  }
+body {
+background-color: #f48fb1; color: #333;
+text-align: center; padding: 50px;
+
+}
+.card {
+background: white; border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+max-width: 500px; margin: 0 auto; padding: 30px;
+
+}
+h1 { color: #f48fb1; }
+p { font-size: 18px; line-height: 1.6; }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="avatar">MM</div>
-  <h1>มนูญ มลิวัลย์</h1>
-  <p class="subtitle">Manoon Maliwan</p>
-  <hr>
-  <div class="row">
-    <span class="icon">🎓</span>
-    <div>
-      <p class="label">สาขาที่ศึกษา</p>
-      <p class="value">Engineering — Electrical Engineering</p>
-    </div>
-  </div>
-  <div class="row">
-    <span class="icon">⚡</span>
-    <div>
-      <p class="label">ความสนใจ</p>
-      <div style="margin-top:4px">
-        <span class="badge">Electrical Engineering</span>
-        <span class="badge">Circuit Design</span>
-        <span class="badge">Electronics</span>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <span class="icon">🌐</span>
-    <div>
-      <p class="label">เว็บไซต์</p>
-      <p class="value">GitHub Pages</p>
-    </div>
-  </div>
-  <p class="footer">สวัสดีครับ! นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages</p>
- <a href="portfolio.html" style="display:inline-block; background:#3498db; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; margin-top:15px;">👉 ดูแฟ้มสะสมงานของผม</a>
+<h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
+<p>สวัสดีครับ! ผมชื่อ <strong>มนูญ (Natchanon)</strong></p>
+<p>ขณะนี้กำลังศึกษา/สนใจด้าน Engineering Electric</p>
+<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
 </div>
 </body>
 </html>
