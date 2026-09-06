@@ -5,27 +5,114 @@
 <meta charset="UTF-8">
 <title>หน้าแนะนำตัวของฉัน</title>
 <style>
-body {
-background-color: #1a237e; color: #333;
-text-align: center; padding: 50px;
+  :root {
+    --navy-deep: #0b1642;
+    --navy-base: #12205c;
+    --navy-mid: #1a2f7a;
+    --circuit-line: rgba(140, 180, 255, 0.16);
+    --circuit-node: rgba(120, 200, 255, 0.35);
+    --accent-cyan: #4fd1ff;
+    --card-bg: #f7f9ff;
+    --text-dark: #1b2340;
+  }
 
-}
-.card {
-background: white; border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
+  * { box-sizing: border-box; }
 
-}
-h1 { color: #1a237e; }
-p { font-size: 18px; line-height: 1.6; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 60px 20px;
+    color: var(--text-dark);
+    font-family: "Sarabun", "Segoe UI", sans-serif;
+
+    /* พื้นหลังไล่เฉดสีน้ำเงินเข้ม */
+    background-color: var(--navy-deep);
+    background-image:
+      /* เส้นวงจร แนวนอน/แนวตั้ง แบบแผงวงจร */
+      linear-gradient(var(--circuit-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--circuit-line) 1px, transparent 1px),
+      /* จุดโหนดวงจรกระจายเป็นลวดลาย */
+      radial-gradient(circle at 20% 30%, var(--circuit-node) 2px, transparent 3px),
+      radial-gradient(circle at 70% 60%, var(--circuit-node) 2px, transparent 3px),
+      radial-gradient(circle at 40% 80%, var(--circuit-node) 2px, transparent 3px),
+      radial-gradient(circle at 85% 15%, var(--circuit-node) 2px, transparent 3px),
+      /* แสงไล่เฉดให้มีมิติ */
+      radial-gradient(ellipse at top left, var(--navy-mid), transparent 60%),
+      radial-gradient(ellipse at bottom right, var(--navy-mid), transparent 60%),
+      linear-gradient(160deg, var(--navy-deep), var(--navy-base));
+    background-size:
+      40px 40px,
+      40px 40px,
+      160px 160px,
+      160px 160px,
+      160px 160px,
+      160px 160px,
+      100% 100%,
+      100% 100%,
+      100% 100%;
+    background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
+    background-attachment: fixed;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    box-shadow:
+      0 20px 50px rgba(5, 10, 40, 0.45),
+      0 0 0 1px rgba(140, 180, 255, 0.15);
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 44px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* เส้นไฮไลต์ด้านบนของการ์ด อ้างอิงธีมวงจรไฟฟ้า */
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy-base), var(--accent-cyan), var(--navy-base));
+  }
+
+  h1 {
+    color: var(--navy-base);
+    font-size: 26px;
+    margin: 0 0 22px;
+    letter-spacing: 0.3px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 14px 0;
+    color: #3a4266;
+  }
+
+  p strong {
+    color: var(--navy-base);
+  }
+
+  .tag {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 14px;
+    font-size: 14px;
+    color: var(--navy-base);
+    background: rgba(26, 47, 122, 0.08);
+    border: 1px solid rgba(26, 47, 122, 0.2);
+    border-radius: 999px;
+  }
 </style>
 </head>
 <body>
 <div class="card">
-<h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
-<p>สวัสดีครับ! ผมชื่อ <strong>มนูญ (Manoon)</strong></p>
-<p>ขณะนี้กำลังศึกษา/สนใจด้าน Engineering Electric</p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
+  <h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน</h1>
+  <p>สวัสดีครับ! ผมชื่อ <strong>มนูญ (Manoon)</strong></p>
+  <p>ขณะนี้กำลังศึกษา/สนใจด้าน <span class="tag">Electrical Engineering</span></p>
+  <p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
 </div>
 </body>
 </html>
