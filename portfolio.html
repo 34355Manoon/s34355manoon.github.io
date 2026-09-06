@@ -185,6 +185,22 @@
     color: #1f2740;
   }
 
+  /* แกลเลอรีแบบโชว์รูปทั้งหมดพร้อมกัน ไม่มีปุ่ม "ดูเพิ่มเติม" */
+  .gallery-grid-static {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-grid-static img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: block;
+  }
+
   /* ===== ป็อปอัพแสดงภาพกิจกรรมทั้งหมด ===== */
   .modal-overlay {
     display: none;
@@ -346,17 +362,35 @@
     </div>
     <button class="gallery-toggle" onclick="openGallery(this)">ดูเพิ่มเติม ▾</button>
 
-    <p style="margin-top:16px;"><strong>ทักษะที่ได้รับ :</strong> การเขียนโปรแกรม Arduino, การต่อวงจรอิเล็กทรอนิกส์เบื้องต้น, การแก้ไขปัญหาระบบควบคุม และการทำงานเป็นทีม</p>
+    <p style="margin-top:16px;"><strong>ทักษะที่ได้รับ :</strong> การเขียนโปรแกรม Arduino, การต่อวงจรอิเล็กทรอนิกส์เบื้องต้น, การแก้ไขปัญหาระบบควบคุม</p>
   </div>
 
   <div class="card project-card">
     <h3>2. วงจรแปลงไฟ DC-DC Converter</h3>
     <p>รายละเอียดชิ้นงาน : ออกแบบวงจรแปลงระดับแรงดันไฟฟ้ากระแสตรง ทดสอบและวัดผลจริง</p>
+
+    <!-- ภาพกิจกรรมของผลงานที่ 2 แก้ไข src ให้เป็นรูปจริงทีหลัง (โชว์ทุกรูป ไม่มีปุ่มดูเพิ่มเติม) -->
+    <p class="gallery-title">📷 ภาพกิจกรรม</p>
+    <div class="gallery-grid-static">
+      <img src="images/work2-photo1.jpg" alt="ภาพกิจกรรมโครงงาน DC-DC Converter 1">
+    </div>
+
+    <p style="margin-top:16px;"><strong>ทักษะที่ได้รับ :</strong> การออกแบบวงจรแปลงไฟฟ้ากระแสตรง, การวัดและทดสอบวงจรไฟฟ้า, การวิเคราะห์ผลการทดลอง</p>
   </div>
 
   <div class="card project-card">
     <h3>3. ระบบไฟอัตโนมัติด้วยเซนเซอร์ตรวจจับความเคลื่อนไหว</h3>
     <p>รายละเอียดชิ้นงาน : ต่อวงจรเซนเซอร์ตรวจจับความเคลื่อนไหวเพื่อควบคุมการเปิด-ปิดไฟอัตโนมัติ</p>
+
+    <!-- ภาพกิจกรรมของผลงานที่ 3 แก้ไข src ให้เป็นรูปจริงทีหลัง (จำกัดแค่ 2 รูป) -->
+    <p class="gallery-title">📷 ภาพกิจกรรม</p>
+    <div class="gallery-grid">
+      <img src="images/work3-photo1.jpg" alt="ภาพกิจกรรมโครงงานเซนเซอร์ตรวจจับความเคลื่อนไหว 1">
+      <img src="images/work3-photo2.jpg" alt="ภาพกิจกรรมโครงงานเซนเซอร์ตรวจจับความเคลื่อนไหว 2">
+    </div>
+    <button class="gallery-toggle" onclick="openGallery(this)">ดูเพิ่มเติม ▾</button>
+
+    <p style="margin-top:16px;"><strong>ทักษะที่ได้รับ :</strong> การต่อวงจรเซนเซอร์ตรวจจับความเคลื่อนไหว, การเขียนโปรแกรมควบคุมระบบไฟอัตโนมัติ, การแก้ไขปัญหาระบบเซนเซอร์</p>
   </div>
 
   <div class="card project-card">
