@@ -2,34 +2,164 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟ้มสะสมงานของฉัน  </title>
+<title>แฟ้มสะสมงานของฉัน</title>
 <style>
-body { font-family: sans-serif; background-color: #f4f7f6; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #2c3e50; color: white; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f4f5f7;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #222;
+    padding: 60px 20px 80px;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #1a1a1a;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    margin: 0 0 34px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+  }
+
+  /* กล่องข้อมูลส่วนตัว อยู่บนสุด */
+  .profile-card h2 {
+    font-size: 19px;
+    margin: 0 0 16px;
+    color: #1a1a1a;
+  }
+
+  .profile-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profile-list li {
+    display: flex;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+  }
+
+  .profile-list li:last-child { border-bottom: none; }
+
+  .profile-list .label {
+    font-weight: 600;
+    color: #333;
+    min-width: 150px;
+  }
+
+  .profile-list .value {
+    color: #555;
+  }
+
+  .project-card h3 {
+    font-size: 17px;
+    margin: 0 0 10px;
+    color: #1a1a1a;
+  }
+
+  .project-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+  }
+
+  .btn-wrap {
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .back-btn {
+    display: inline-block;
+    background: #2c3550;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .back-btn:hover {
+    background: #1f2740;
+    transform: translateY(-1px);
+  }
 </style>
 </head>
 <body>
-<div class="container">
-<h1> แฟ้มสะสมงาน  (Portfolio)</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
-<!-- กล่องผลงานชนที่ ้ิ 1 -->
-<div class="project-card">
-<h3>1. โครงงาน/ชิ้นงานวิทยาศาสตร์คำนวณ  </h3>
-<p>รายละเอียดชิ้นงาน  : เขียนอธิบายสั้นๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง  </p>
+
+<div class="wrap">
+
+  <!-- กล่องข้อมูลส่วนตัว ไว้บนสุดตามที่ขอ -->
+  <div class="card profile-card">
+    <h2>ข้อมูลส่วนตัว</h2>
+    <ul class="profile-list">
+      <li><span class="label">ชื่อ-นามสกุล</span><span class="value">[นายมนูญ มลิวัลย์]</span></li>
+      <li><span class="label">ชื่อเล่น</span><span class="value">ซิกก้า</span></li>
+      <li><span class="label">วัน/เดือน/ปีเกิด</span><span class="value">[1 พฤศจิกายน พ.ศ.2551]</span></li>
+      <li><span class="label">อายุ</span><span class="value">[17 ปี]</span></li>
+      <li><span class="label">แผนการเรียน</span><span class="value">[เตรียมวิศวะ]</span></li>
+    </ul>
+  </div>
+
+  <h1 class="page-title">แฟ้มสะสมงาน (Portfolio)</h1>
+  <p class="page-subtitle">นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
+
+  <div class="card project-card">
+    <h3>1. โครงงานควบคุมมอเตอร์ด้วย Arduino</h3>
+    <p>รายละเอียดชิ้นงาน : ออกแบบและเขียนโปรแกรมระบบควบคุมความเร็ว/ทิศทางมอเตอร์ด้วย Arduino</p>
+  </div>
+
+  <div class="card project-card">
+    <h3>2. วงจรแปลงไฟ DC-DC Converter</h3>
+    <p>รายละเอียดชิ้นงาน : ออกแบบวงจรแปลงระดับแรงดันไฟฟ้ากระแสตรง ทดสอบและวัดผลจริง</p>
+  </div>
+
+  <div class="card project-card">
+    <h3>3. ระบบไฟอัตโนมัติด้วยเซนเซอร์ตรวจจับความเคลื่อนไหว</h3>
+    <p>รายละเอียดชิ้นงาน : ต่อวงจรเซนเซอร์ตรวจจับความเคลื่อนไหวเพื่อควบคุมการเปิด-ปิดไฟอัตโนมัติ</p>
+  </div>
+
+  <div class="card project-card">
+    <h3>ทักษะ</h3>
+    <p>Circuit Design, PLC, Python พื้นฐาน</p>
+  </div>
+
+  <div class="card project-card">
+    <h3>ติดต่อ</h3>
+    <p>📧 manoon@example.com</p>
+  </div>
+
+  <div class="btn-wrap">
+    <a class="back-btn" href="index.html">กลับหน้าแรก</a>
+  </div>
+
 </div>
-<!-- กล่องผลงานชนที่ ้ิ 2 -->
-<div class="project-card">
-<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชิ้นงาน  : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
-</div>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-</div>
+
 </body>
 </html>
