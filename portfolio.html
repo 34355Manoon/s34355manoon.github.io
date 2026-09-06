@@ -90,6 +90,16 @@
   .card p:last-child { margin-bottom: 0; }
 
   /* กล่องข้อมูลส่วนตัว */
+  .profile-photo {
+    display: block;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 3px solid #eee;
+  }
+
   .profile-list {
     list-style: none;
     margin: 0;
@@ -206,7 +216,8 @@
 
   <!-- About Me / ข้อมูลส่วนตัว -->
   <div class="card" id="about">
-    <h2>About Me</h2>
+    <h2 style="text-align:center;">About Me</h2>
+    <img src="images/profile.jpg" alt="รูปโปรไฟล์ของมนูญ" class="profile-photo">
     <ul class="profile-list">
       <li><span class="label">ชื่อ-นามสกุล</span><span class="value">นายมนูญ มลิวัลย์</span></li>
       <li><span class="label">ชื่อเล่น</span><span class="value">ซิกก้า</span></li>
@@ -249,8 +260,8 @@
     <h2>ติดต่อ</h2>
     <ul class="contact-list">
       <li><span class="label">Email</span><span class="value">Klazacombo.1@gmail.com</span></li>
-      <li><span class="label">Facebook</span><span class="value">Kla Manoon</span></li>
-      <li><span class="label">เบอร์โทรศัพท์</span><span class="value">095-390-9386</span></li>
+      <li><span class="label">Facebook</span><span class="value">[ใส่ชื่อ/ลิงก์ Facebook]</span></li>
+      <li><span class="label">เบอร์โทรศัพท์</span><span class="value">[ใส่เบอร์โทรศัพท์]</span></li>
     </ul>
   </div>
 
