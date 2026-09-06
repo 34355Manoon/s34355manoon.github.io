@@ -129,6 +129,33 @@
     margin: 0;
   }
 
+  /* รายการข้อมูลติดต่อ (Email / Facebook / เบอร์โทรศัพท์) */
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-list li {
+    display: flex;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+  }
+
+  .contact-list li:last-child { border-bottom: none; }
+
+  .contact-list .label {
+    font-weight: 600;
+    color: #333;
+    min-width: 150px;
+  }
+
+  .contact-list .value {
+    color: #555;
+  }
+
   .btn-wrap {
     text-align: center;
     margin-top: 36px;
@@ -217,9 +244,14 @@
     <p>Circuit Design, PLC, Python พื้นฐาน</p>
   </div>
 
-  <div class="card project-card" id="contact">
-    <h3>ติดต่อ</h3>
-    <p>Klazacombo.1@gmail.com</p>
+  <!-- ติดต่อ: แยกเป็นหัวข้อ Email / Facebook / เบอร์โทรศัพท์ -->
+  <div class="card" id="contact">
+    <h2>ติดต่อ</h2>
+    <ul class="contact-list">
+      <li><span class="label">Email</span><span class="value">Klazacombo.1@gmail.com</span></li>
+      <li><span class="label">Facebook</span><span class="value">[ใส่ชื่อ/ลิงก์ Facebook]</span></li>
+      <li><span class="label">เบอร์โทรศัพท์</span><span class="value">[ใส่เบอร์โทรศัพท์]</span></li>
+    </ul>
   </div>
 
   <div class="card" id="thanks">
