@@ -2,129 +2,34 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>โปรไฟล์ของฉัน</title>
+<meta viewport="width=device-width, initial-scale=1.0">
+<title>แฟ้มสะสมงานของฉัน  </title>
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: #f28eab;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    padding: 40px 20px;
-  }
-  .card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px 50px;
-    max-width: 560px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  }
-  h1 {
-    color: #ec4899;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  p {
-    color: #333;
-    font-size: 16px;
-    margin: 10px 0;
-    line-height: 1.6;
-  }
-  .btn-row {
-    margin-top: 25px;
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  button {
-    background: #2196f3;
-    color: #fff;
-    border: none;
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-  }
-  button:hover {
-    background: #1976d2;
-    transform: translateY(-1px);
-  }
-  .link {
-    color: #333;
-    text-decoration: underline;
-    align-self: center;
-    cursor: pointer;
-  }
-  #portfolio {
-    display: none;
-    margin-top: 25px;
-    text-align: left;
-    background: #fdf2f7;
-    border-radius: 14px;
-    padding: 22px;
-    animation: fadeIn 0.4s ease;
-  }
-  #portfolio.show { display: block; }
-  #portfolio h2 {
-    color: #ec4899;
-    font-size: 20px;
-    margin-top: 0;
-  }
-  #portfolio ul {
-    padding-left: 20px;
-    color: #444;
-  }
-  #portfolio li {
-    margin-bottom: 8px;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+body { font-family: sans-serif; background-color: #f4f7f6; text-align: center;
+padding: 30px; }
+.container { max-width: 800px; margin: 0 auto; }
+.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
+8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
+.btn { display: inline-block; background: #2c3e50; color: white; padding: 10px
+20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
 </style>
 </head>
 <body>
-
-<div class="card">
-  <h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน</h1>
-  <p>สวัสดีครับ! ผมชื่อ <b>มนูญ (Manoon)</b></p>
-  <p>ขณะนี้กำลังศึกษา/สนใจด้าน Engineering Electric</p>
-  <p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
-
-  <div class="btn-row">
-    <button id="toggleBtn" onclick="togglePortfolio()">👍 ดูแฟ้มสะสมงานของผม</button>
-    <span class="link">จดหมายขยะ</span>
-  </div>
-
-  <div id="portfolio">
-    <h2>แฟ้มสะสมงานของ มนูญ</h2>
-    <ul>
-      <li>🔧 โปรเจกต์: ระบบควบคุมมอเตอร์ด้วย Arduino</li>
-      <li>⚡ โปรเจกต์: วงจรแปลงไฟ DC-DC Converter</li>
-      <li>💡 โปรเจกต์: ระบบไฟอัตโนมัติด้วยเซนเซอร์ตรวจจับความเคลื่อนไหว</li>
-      <li>🖥️ ทักษะ: Circuit Design, PLC, Python พื้นฐาน</li>
-    </ul>
-    <p>📧 ติดต่อ: manoon@example.com</p>
-  </div>
+<div class="container">
+<h1> แฟ้มสะสมงาน  (Portfolio)</h1>
+<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
+<!-- กล่องผลงานชนที่ ้ิ 1 -->
+<div class="project-card">
+<h3>1. โครงงาน/ชิ้นงานวิทยาศาสตร์คำนวณ  </h3>
+<p>รายละเอียดชิ้นงาน  : เขียนอธิบายสั้นๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง  </p>
 </div>
-
-<script>
-  function togglePortfolio() {
-    const el = document.getElementById('portfolio');
-    const btn = document.getElementById('toggleBtn');
-    el.classList.toggle('show');
-    btn.textContent = el.classList.contains('show')
-      ? '🔼 ซ่อนแฟ้มสะสมงาน'
-      : '👍 ดูแฟ้มสะสมงานของผม';
-  }
-</script>
-
+<!-- กล่องผลงานชนที่ ้ิ 2 -->
+<div class="project-card">
+<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
+<p>รายละเอียดชิ้นงาน  : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
+</div>
+<!-- ปุ่มกดกลับหน้าแรก -->
+<a href="index.html" class="btn"> กลับหน้าแรก</a>
+</div>
 </body>
 </html>
