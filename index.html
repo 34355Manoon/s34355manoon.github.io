@@ -105,6 +105,29 @@
     border: 1px solid rgba(26, 47, 122, 0.2);
     border-radius: 999px;
   }
+
+  .cta-row {
+    margin-top: 28px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 12px 26px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #fff;
+    background: var(--navy-base);
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .cta-button:hover {
+    background: var(--navy-mid);
+    transform: translateY(-1px);
+  }
 </style>
 </head>
 <body>
@@ -113,6 +136,10 @@
   <p>สวัสดีครับ! ผมชื่อ <strong>มนูญ (Manoon)</strong></p>
   <p>ขณะนี้กำลังศึกษา/สนใจด้าน <span class="tag">Electrical Engineering</span></p>
   <p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
+
+  <div class="cta-row">
+    <a class="cta-button" href="portfolio.html">ดูแฟ้มสะสมงานของผม ➜</a>
+  </div>
 </div>
 </body>
 </html>
