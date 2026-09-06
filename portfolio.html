@@ -6,18 +6,47 @@
 <style>
   * { box-sizing: border-box; }
 
+  html { scroll-behavior: smooth; }
+
   body {
     margin: 0;
     min-height: 100vh;
     background: #f4f5f7;
     font-family: 'Segoe UI', Tahoma, sans-serif;
     color: #222;
-    padding: 60px 20px 80px;
+    padding-bottom: 80px;
+  }
+
+  /* ===== แถบเมนูด้านบน (ยังไม่ตกแต่งสี) ===== */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .navbar a {
+    color: #222;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .navbar a:hover {
+    border-color: #999;
   }
 
   .wrap {
     max-width: 800px;
     margin: 0 auto;
+    padding: 40px 20px 0;
   }
 
   .page-title {
@@ -26,6 +55,7 @@
     font-weight: 700;
     margin: 0 0 8px;
     color: #1a1a1a;
+    scroll-margin-top: 80px;
   }
 
   .page-subtitle {
@@ -41,15 +71,25 @@
     box-shadow: 0 4px 14px rgba(0,0,0,0.06);
     padding: 26px 30px;
     margin-bottom: 22px;
+    scroll-margin-top: 80px;
   }
 
-  /* กล่องข้อมูลส่วนตัว อยู่บนสุด */
-  .profile-card h2 {
+  .card h2 {
     font-size: 19px;
     margin: 0 0 16px;
     color: #1a1a1a;
   }
 
+  .card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    margin: 0 0 12px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  /* กล่องข้อมูลส่วนตัว */
   .profile-list {
     list-style: none;
     margin: 0;
@@ -113,11 +153,33 @@
 </head>
 <body>
 
+<!-- ===== เมนูด้านบน กดแล้วเลื่อนไปยังส่วนนั้น (smooth scroll) ===== -->
+<nav class="navbar">
+  <a href="#home">หน้าแรก</a>
+  <a href="#intro">คำนำ</a>
+  <a href="#about">About Me</a>
+  <a href="#university">มหาวิทยาลัย</a>
+  <a href="#works">ผลงาน</a>
+  <a href="#contact">ติดต่อ</a>
+  <a href="#thanks">ขอบคุณ</a>
+</nav>
+
 <div class="wrap">
 
-  <!-- กล่องข้อมูลส่วนตัว ไว้บนสุดตามที่ขอ -->
-  <div class="card profile-card">
-    <h2>ข้อมูลส่วนตัว</h2>
+  <h1 class="page-title" id="home">แฟ้มสะสมผลงาน (Portfolio)</h1>
+  <p class="page-subtitle">นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
+
+  <!-- คำนำ -->
+  <div class="card" id="intro">
+    <h2>คำนำ</h2>
+    <p>แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ผลงาน โครงงาน และกิจกรรมต่าง ๆ ที่แสดงถึงความสามารถ ความสนใจ และความตั้งใจของข้าพเจ้าในสายงานวิศวกรรมไฟฟ้า</p>
+    <p>ผลงานภายในแฟ้มสะสมผลงานเล่มนี้ส่วนหนึ่งเป็นประสบการณ์จากโครงงานด้านวงจรไฟฟ้าและระบบควบคุม ซึ่งช่วยพัฒนาทักษะการคิดวิเคราะห์ การแก้ไขปัญหาเฉพาะหน้า และการทำงานอย่างเป็นระบบ</p>
+    <p style="text-align:right;">นายมนูญ มลิวัลย์</p>
+  </div>
+
+  <!-- About Me / ข้อมูลส่วนตัว -->
+  <div class="card" id="about">
+    <h2>About Me</h2>
     <ul class="profile-list">
       <li><span class="label">ชื่อ-นามสกุล</span><span class="value">นายมนูญ มลิวัลย์</span></li>
       <li><span class="label">ชื่อเล่น</span><span class="value">ซิกก้า</span></li>
@@ -127,8 +189,13 @@
     </ul>
   </div>
 
-  <h1 class="page-title">แฟ้มสะสมงาน (Portfolio)</h1>
-  <p class="page-subtitle">นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
+  <!-- มหาวิทยาลัย -->
+  <div class="card" id="university">
+    <h2>มหาวิทยาลัยที่สนใจ</h2>
+    <p>อยู่ระหว่างเตรียมความพร้อมด้านวิศวกรรมไฟฟ้า เพื่อยื่นสมัครเข้าศึกษาต่อในระดับมหาวิทยาลัย</p>
+  </div>
+
+  <h1 class="page-title" id="works" style="font-size:24px; margin-top:40px;">ผลงาน</h1>
 
   <div class="card project-card">
     <h3>1. โครงงานควบคุมมอเตอร์ด้วย Arduino</h3>
@@ -150,9 +217,14 @@
     <p>Circuit Design, PLC, Python พื้นฐาน</p>
   </div>
 
-  <div class="card project-card">
+  <div class="card project-card" id="contact">
     <h3>ติดต่อ</h3>
     <p>📧 manoon@example.com</p>
+  </div>
+
+  <div class="card" id="thanks">
+    <h2 style="text-align:center;">ขอบคุณ</h2>
+    <p style="text-align:center;">ขอบคุณที่สละเวลาเข้ามาชมแฟ้มสะสมผลงานของผมครับ</p>
   </div>
 
   <div class="btn-wrap">
