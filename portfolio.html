@@ -242,22 +242,23 @@
     margin-bottom: 20px;
   }
 
-  .university-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 20px;
+  .university-photo-frame {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    margin: 4px auto 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 3px 10px rgba(15, 35, 56, 0.1);
   }
 
-  .university-logo {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
-    flex-shrink: 0;
-    background: #fff;
-    border: 1px solid var(--surface-border);
-    border-radius: 8px;
-    padding: 5px;
+  .university-photo-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* แกลเลอรีภาพกิจกรรม ใช้ในการ์ดผลงาน */
@@ -486,10 +487,13 @@
   <div class="card" id="university">
     <h2>มหาวิทยาลัยที่สนใจ</h2>
 
-    <div class="university-header">
-      <!-- โลโก้มหาวิทยาลัย แก้ไข src ให้เป็นรูปจริงทีหลัง -->
-      <img src="images/university-logo.png" alt="โลโก้มหาวิทยาลัยบูรพา" class="university-logo">
-      <strong class="field-label" style="color: var(--navy-mid); margin: 0;">มหาวิทยาลัยบูรพา บางแสน</strong>
+    <p>
+      <strong class="field-label" style="color: var(--navy-mid);">มหาวิทยาลัยบูรพา บางแสน</strong>
+    </p>
+
+    <!-- โลโก้/ตราสัญลักษณ์มหาวิทยาลัย แก้ไข src ให้เป็นรูปจริงทีหลัง -->
+    <div class="university-photo-frame">
+      <img src="images/university-logo.png" alt="ตราสัญลักษณ์มหาวิทยาลัยบูรพา">
     </div>
 
     <p>
