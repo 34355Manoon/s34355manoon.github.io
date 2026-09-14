@@ -1,1 +1,213 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>คำนำ - แฟ้มสะสมงานของฉัน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EDF3F8;
+    --bg-grid: #DCE8F2;
+    --surface: #FFFFFF;
+    --surface-border: #D9E4EC;
+    --ink: #16324A;
+    --ink-soft: #4B6076;
+    --muted: #7C90A3;
+    --copper: #BE6A2A;
+    --copper-dark: #8F4E1D;
+    --navy-deep: #0F2338;
+    --navy-mid: #1C3D5A;
+  }
 
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--bg-grid) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--bg-grid) 0 1px, transparent 1px 32px);
+    background-attachment: fixed;
+    font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans', sans-serif;
+    color: var(--ink-soft);
+    padding-bottom: 80px;
+  }
+
+  /* ===== แถบเมนูด้านบน: ทำเหมือนแถบขั้วต่อ (edge connector) ===== */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    background: var(--navy-deep);
+    border-bottom: 3px solid var(--copper);
+  }
+
+  .navbar a {
+    position: relative;
+    color: #DCE8F2;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 2px 8px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .navbar a:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -13px;
+    top: 4px;
+    width: 1px;
+    height: 12px;
+    background: rgba(220, 232, 242, 0.25);
+  }
+
+  .navbar a:hover {
+    color: #fff;
+    border-color: var(--copper);
+  }
+
+  .navbar a.active {
+    color: #fff;
+    border-color: var(--copper);
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 44px 28px 0;
+    position: relative;
+  }
+
+  .page-title {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+
+  .page-subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0 0 40px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-left: 4px solid var(--copper);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(15, 35, 56, 0.07);
+    padding: 26px 30px;
+    margin-bottom: 26px;
+    position: relative;
+  }
+
+  .card h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    color: var(--ink);
+  }
+
+  .card p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .btn-wrap {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .back-btn {
+    display: inline-block;
+    background: var(--navy-deep);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 32px;
+    border-radius: 6px;
+    border: 1px solid var(--navy-deep);
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+  }
+
+  .back-btn:hover {
+    background: var(--copper-dark);
+    border-color: var(--copper-dark);
+    transform: translateY(-1px);
+  }
+
+  .back-btn.secondary {
+    background: transparent;
+    color: var(--navy-deep);
+    border: 1px solid var(--navy-deep);
+  }
+
+  .back-btn.secondary:hover {
+    background: var(--navy-deep);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== เมนูด้านบน: ลิงก์ไปยังส่วนต่างๆ ของหน้า portfolio.html ===== -->
+<nav class="navbar">
+  <a href="index.html">หน้าแรก</a>
+  <a href="intro.html" class="active">คำนำ</a>
+  <a href="portfolio.html#about">About Me</a>
+  <a href="portfolio.html#university">มหาวิทยาลัย</a>
+  <a href="portfolio.html#works">ผลงาน</a>
+  <a href="portfolio.html#contact">ติดต่อ</a>
+  <a href="portfolio.html#thanks">ขอบคุณ</a>
+</nav>
+
+<div class="wrap">
+
+  <h1 class="page-title">คำนำ</h1>
+  <p class="page-subtitle">ที่มาและจุดประสงค์ของแฟ้มสะสมผลงานฉบับนี้</p>
+
+  <div class="card">
+    <h2>คำนำ</h2>
+    <p>แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ผลงาน โครงงานและกิจกรรมต่างๆ ที่แสดงถึงความสามารถ ความสนใจ และความตั้งใจของข้าพเจ้าในสายงานวิศวกรรมไฟฟ้า</p>
+    <p>ผลงานภายในแฟ้มสะสมผลงานเล่มนี้ส่วนหนึ่งเป็นประสบการณ์จากโครงงานด้านวงจรไฟฟ้าและระบบควบคุม ซึ่งช่วยพัฒนาทักษะการคิดวิเคราะห์ การแก้ไขปัญหาเฉพาะหน้า และการทำงานอย่างเป็นระบบ</p>
+  </div>
+
+  <div class="btn-wrap">
+    <a class="back-btn secondary" href="index.html">◀ กลับหน้าแรก</a>
+    <a class="back-btn" href="portfolio.html">ไปหน้าแฟ้มสะสมผลงาน ▶</a>
+  </div>
+
+</div>
+
+</body>
+</html>
