@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+
   :root {
     --bg: #EDF3F8;
     --bg-grid: #DCE8F2;
@@ -92,6 +93,22 @@
     position: relative;
   }
 
+  /* สายวงจรทองแดงพาดลงตามความยาวของหน้า เชื่อมแต่ละส่วนเข้าด้วยกัน */
+  .wrap::before {
+    content: "";
+    position: absolute;
+    top: 118px;
+    bottom: 40px;
+    left: 12px;
+    width: 2px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--copper) 0 8px,
+      transparent 8px 16px
+    );
+    z-index: 0;
+  }
+
   .page-title {
     text-align: center;
     font-family: 'IBM Plex Mono', monospace;
@@ -100,6 +117,8 @@
     letter-spacing: -0.3px;
     margin: 0 0 8px;
     color: var(--ink);
+    position: relative;
+    z-index: 1;
   }
 
   .page-subtitle {
@@ -107,6 +126,8 @@
     font-size: 15px;
     color: var(--muted);
     margin: 0 0 40px;
+    position: relative;
+    z-index: 1;
   }
 
   .card {
@@ -118,6 +139,21 @@
     padding: 26px 30px;
     margin-bottom: 26px;
     position: relative;
+    z-index: 1;
+  }
+
+  /* จุดเชื่อมต่อ (solder joint) บนสายวงจร ตรงมุมซ้ายบนของแต่ละการ์ด */
+  .card::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 28px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--copper);
+    border: 3px solid var(--navy-deep);
+    box-shadow: 0 0 0 3px var(--bg);
   }
 
   .card h2 {
@@ -137,6 +173,242 @@
 
   .card p:last-child { margin-bottom: 0; }
 
+  /* กล่องข้อมูลส่วนตัว */
+  .profile-photo {
+    display: block;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 24px;
+    border: 4px solid var(--copper);
+    outline: 2px solid var(--navy-mid);
+    outline-offset: 5px;
+  }
+
+  .profile-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profile-list li {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--surface-border);
+    font-size: 15px;
+  }
+
+  .profile-list li:last-child { border-bottom: none; }
+
+  .profile-list .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--navy-mid);
+    min-width: 150px;
+  }
+
+  .profile-list .value {
+    color: var(--ink-soft);
+  }
+
+  .project-card h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16.5px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+
+  .project-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .project-card strong,
+  .field-label {
+    color: var(--copper-dark);
+  }
+
+  .field-label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13.5px;
+    margin: 0 0 6px;
+  }
+
+  #university p:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .university-photo-frame {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    margin: 4px auto 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 3px 10px rgba(15, 35, 56, 0.1);
+  }
+
+  .university-photo-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* แกลเลอรีภาพกิจกรรม ใช้ในการ์ดผลงาน */
+  .gallery-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin: 20px 0 10px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 3px 10px rgba(15, 35, 56, 0.1);
+    display: block;
+  }
+
+  .gallery-grid img:not(:first-child) {
+    display: none;
+  }
+
+  .gallery-toggle {
+    display: inline-block;
+    margin-top: 14px;
+    background: none;
+    border: none;
+    color: var(--copper-dark);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .gallery-toggle:hover {
+    color: var(--copper);
+  }
+
+  .gallery-grid-static {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-grid-static img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 3px 10px rgba(15, 35, 56, 0.1);
+    display: block;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 35, 56, 0.72);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-overlay.open {
+    display: flex;
+  }
+
+  .modal-box {
+    background: #fff;
+    border-radius: 10px;
+    border-top: 4px solid var(--copper);
+    max-width: 600px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 26px 24px 24px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .modal-body img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .modal-body img:last-child {
+    margin-bottom: 0;
+  }
+
+  /* รายการข้อมูลติดต่อ */
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-list li {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--surface-border);
+    font-size: 15px;
+  }
+
+  .contact-list li:last-child { border-bottom: none; }
+
+  .contact-list .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--navy-mid);
+    min-width: 150px;
+  }
+
+  .contact-list .value {
+    color: var(--ink-soft);
+  }
+
   .btn-wrap {
     text-align: center;
     margin-top: 40px;
@@ -144,6 +416,8 @@
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
   }
 
   .back-btn {
@@ -176,19 +450,27 @@
     background: var(--navy-deep);
     color: #fff;
   }
+
+  @media (max-width: 480px) {
+    .wrap::before { left: 6px; }
+    .card::before { left: -19px; width: 10px; height: 10px; }
+    .card { padding: 22px 20px; border-left-width: 3px; }
+    .profile-list .label,
+    .contact-list .label { min-width: 120px; }
+  }
+
 </style>
 </head>
 <body>
 
-<!-- ===== เมนูด้านบน: ลิงก์ไปยังส่วนต่างๆ ของหน้า portfolio.html ===== -->
 <nav class="navbar">
   <a href="index.html">หน้าแรก</a>
   <a href="intro.html" class="active">คำนำ</a>
-  <a href="portfolio.html#about">About Me</a>
-  <a href="portfolio.html#university">มหาวิทยาลัย</a>
-  <a href="portfolio.html#works">ผลงาน</a>
-  <a href="portfolio.html#contact">ติดต่อ</a>
-  <a href="portfolio.html#thanks">ขอบคุณ</a>
+  <a href="about.html">About Me</a>
+  <a href="university.html">มหาวิทยาลัย</a>
+  <a href="works.html">ผลงาน</a>
+  <a href="contact.html">ติดต่อ</a>
+  <a href="thanks.html">ขอบคุณ</a>
 </nav>
 
 <div class="wrap">
@@ -196,7 +478,7 @@
   <h1 class="page-title">คำนำ</h1>
   <p class="page-subtitle">ที่มาและจุดประสงค์ของแฟ้มสะสมผลงานฉบับนี้</p>
 
-  <div class="card">
+  <div class="card" id="intro">
     <h2>คำนำ</h2>
     <p>แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว ผลงาน โครงงานและกิจกรรมต่างๆ ที่แสดงถึงความสามารถ ความสนใจ และความตั้งใจของข้าพเจ้าในสายงานวิศวกรรมไฟฟ้า</p>
     <p>ผลงานภายในแฟ้มสะสมผลงานเล่มนี้ส่วนหนึ่งเป็นประสบการณ์จากโครงงานด้านวงจรไฟฟ้าและระบบควบคุม ซึ่งช่วยพัฒนาทักษะการคิดวิเคราะห์ การแก้ไขปัญหาเฉพาะหน้า และการทำงานอย่างเป็นระบบ</p>
@@ -204,7 +486,7 @@
 
   <div class="btn-wrap">
     <a class="back-btn secondary" href="index.html">◀ กลับหน้าแรก</a>
-    <a class="back-btn" href="portfolio.html">ไปหน้าแฟ้มสะสมผลงาน ▶</a>
+    <a class="back-btn" href="about.html">About Me ▶</a>
   </div>
 
 </div>
