@@ -1,1 +1,494 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ขอบคุณ - แฟ้มสะสมงานของฉัน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
 
+  :root {
+    --bg: #EDF3F8;
+    --bg-grid: #DCE8F2;
+    --surface: #FFFFFF;
+    --surface-border: #D9E4EC;
+    --ink: #16324A;
+    --ink-soft: #4B6076;
+    --muted: #7C90A3;
+    --copper: #BE6A2A;
+    --copper-dark: #8F4E1D;
+    --navy-deep: #0F2338;
+    --navy-mid: #1C3D5A;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--bg-grid) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--bg-grid) 0 1px, transparent 1px 32px);
+    background-attachment: fixed;
+    font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans', sans-serif;
+    color: var(--ink-soft);
+    padding-bottom: 80px;
+  }
+
+  /* ===== แถบเมนูด้านบน: ทำเหมือนแถบขั้วต่อ (edge connector) ===== */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    background: var(--navy-deep);
+    border-bottom: 3px solid var(--copper);
+  }
+
+  .navbar a {
+    position: relative;
+    color: #DCE8F2;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 2px 8px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .navbar a:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -13px;
+    top: 4px;
+    width: 1px;
+    height: 12px;
+    background: rgba(220, 232, 242, 0.25);
+  }
+
+  .navbar a:hover {
+    color: #fff;
+    border-color: var(--copper);
+  }
+
+  .navbar a.active {
+    color: #fff;
+    border-color: var(--copper);
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 44px 28px 0;
+    position: relative;
+  }
+
+  /* สายวงจรทองแดงพาดลงตามความยาวของหน้า เชื่อมแต่ละส่วนเข้าด้วยกัน */
+  .wrap::before {
+    content: "";
+    position: absolute;
+    top: 118px;
+    bottom: 40px;
+    left: 12px;
+    width: 2px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--copper) 0 8px,
+      transparent 8px 16px
+    );
+    z-index: 0;
+  }
+
+  .page-title {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 8px;
+    color: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-left: 4px solid var(--copper);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(15, 35, 56, 0.07);
+    padding: 26px 30px;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* จุดเชื่อมต่อ (solder joint) บนสายวงจร ตรงมุมซ้ายบนของแต่ละการ์ด */
+  .card::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 28px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--copper);
+    border: 3px solid var(--navy-deep);
+    box-shadow: 0 0 0 3px var(--bg);
+  }
+
+  .card h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    color: var(--ink);
+  }
+
+  .card p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  /* กล่องข้อมูลส่วนตัว */
+  .profile-photo {
+    display: block;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 24px;
+    border: 4px solid var(--copper);
+    outline: 2px solid var(--navy-mid);
+    outline-offset: 5px;
+  }
+
+  .profile-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profile-list li {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--surface-border);
+    font-size: 15px;
+  }
+
+  .profile-list li:last-child { border-bottom: none; }
+
+  .profile-list .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--navy-mid);
+    min-width: 150px;
+  }
+
+  .profile-list .value {
+    color: var(--ink-soft);
+  }
+
+  .project-card h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16.5px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+
+  .project-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .project-card strong,
+  .field-label {
+    color: var(--copper-dark);
+  }
+
+  .field-label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13.5px;
+    margin: 0 0 6px;
+  }
+
+  #university p:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .university-photo-frame {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    margin: 4px auto 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 3px 10px rgba(15, 35, 56, 0.1);
+  }
+
+  .university-photo-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* แกลเลอรีภาพกิจกรรม ใช้ในการ์ดผลงาน */
+  .gallery-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin: 20px 0 10px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 3px 10px rgba(15, 35, 56, 0.1);
+    display: block;
+  }
+
+  .gallery-grid img:not(:first-child) {
+    display: none;
+  }
+
+  .gallery-toggle {
+    display: inline-block;
+    margin-top: 14px;
+    background: none;
+    border: none;
+    color: var(--copper-dark);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .gallery-toggle:hover {
+    color: var(--copper);
+  }
+
+  .gallery-grid-static {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-grid-static img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 3px 10px rgba(15, 35, 56, 0.1);
+    display: block;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 35, 56, 0.72);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-overlay.open {
+    display: flex;
+  }
+
+  .modal-box {
+    background: #fff;
+    border-radius: 10px;
+    border-top: 4px solid var(--copper);
+    max-width: 600px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 26px 24px 24px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .modal-body img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .modal-body img:last-child {
+    margin-bottom: 0;
+  }
+
+  /* รายการข้อมูลติดต่อ */
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-list li {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--surface-border);
+    font-size: 15px;
+  }
+
+  .contact-list li:last-child { border-bottom: none; }
+
+  .contact-list .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--navy-mid);
+    min-width: 150px;
+  }
+
+  .contact-list .value {
+    color: var(--ink-soft);
+  }
+
+  .btn-wrap {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .back-btn {
+    display: inline-block;
+    background: var(--navy-deep);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 32px;
+    border-radius: 6px;
+    border: 1px solid var(--navy-deep);
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+  }
+
+  .back-btn:hover {
+    background: var(--copper-dark);
+    border-color: var(--copper-dark);
+    transform: translateY(-1px);
+  }
+
+  .back-btn.secondary {
+    background: transparent;
+    color: var(--navy-deep);
+    border: 1px solid var(--navy-deep);
+  }
+
+  .back-btn.secondary:hover {
+    background: var(--navy-deep);
+    color: #fff;
+  }
+
+  @media (max-width: 480px) {
+    .wrap::before { left: 6px; }
+    .card::before { left: -19px; width: 10px; height: 10px; }
+    .card { padding: 22px 20px; border-left-width: 3px; }
+    .profile-list .label,
+    .contact-list .label { min-width: 120px; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html">หน้าแรก</a>
+  <a href="intro.html">คำนำ</a>
+  <a href="about.html">About Me</a>
+  <a href="university.html">มหาวิทยาลัย</a>
+  <a href="works.html">ผลงาน</a>
+  <a href="contact.html">ติดต่อ</a>
+  <a href="thanks.html" class="active">ขอบคุณ</a>
+</nav>
+
+<div class="wrap">
+
+  <h1 class="page-title">ขอบคุณ</h1>
+  <p class="page-subtitle">ขอบคุณที่แวะมาชมครับ</p>
+
+  <div class="card" id="thanks">
+    <h2 style="text-align:center;">ขอบคุณ</h2>
+    <p style="text-align:center;">ขอบคุณที่สละเวลาเข้ามาชมแฟ้มสะสมผลงานของผมครับ</p>
+  </div>
+
+  <div class="btn-wrap">
+    <a class="back-btn secondary" href="contact.html">◀ ติดต่อ</a>
+    <a class="back-btn" href="index.html">กลับหน้าแรก ▶</a>
+  </div>
+
+</div>
+
+</body>
+</html>
